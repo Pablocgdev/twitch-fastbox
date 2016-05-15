@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Twitch Nano bot</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="bower_components/semantic/dist/semantic.css">
+</head>
+<body ng-app="ninioTwitch">
+	<div ng-controller="ninioCtrl">
+		<h1>{{name}}</h1>
+
+
+		<div class="ui special cards">
+		  <div class="card" ng-repeat="z in streams ">
+		    <div class="blurring dimmable image">
+		      <div class="ui dimmer">
+		        <div class="content">
+		          <div class="center">
+		            <div class="ui inverted button">More Info.</div>
+		          </div>
+		        </div>
+		      </div>
+		      <img ng-src="{{z.preview.medium}}">
+		    </div>
+		    <div class="content">
+		      <a class="header">{{z.channel.display_name}}</a>
+		      <div class="meta">
+		        <span class="date">{{z.location}}</span>
+		      </div>
+		    </div>
+		    <div class="extra content">
+		      <a>
+		        <i class="users icon"></i>
+		        {{z.viewers}}
+		      </a>
+		      <span class="right floated">{{z.channel.broadcaster_language
+}}</span>
+		    </div>
+		  </div>
+
+
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="app.js"></script>
+	<script src="streamsFactory.js"></script>
+</body>
+</html>
